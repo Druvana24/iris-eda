@@ -31,3 +31,16 @@ plt.show()
 sns.boxplot(x="species", y="petal length (cm)", data=df)
 plt.title("Petal Length by Species")
 plt.show()
+
+# Pairplot of all features colored by species
+sns.pairplot(df, hue="species")
+plt.suptitle("Pairplot of Iris Features", y=1.02)
+plt.show()
+
+# Correlation heatmap for numeric features
+plt.figure(figsize=(6, 4))
+corr = df.drop(columns=["species"]).corr()
+sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Correlation Heatmap of Iris Features")
+plt.tight_layout()
+plt.show()
